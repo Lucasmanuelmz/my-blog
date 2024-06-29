@@ -1,0 +1,26 @@
+<%-include('../../partials/Head'); -%>
+<table class=" mt-10 table-auto max-w-4xl border-spacing-5 mx-auto border-collapse border rounded-xl border-slate-500 px-4 py-4">
+    <caption class="caption-top text-xs mb-3">
+        Tabela categorias: Contém todas categorias do blog
+      </caption>
+    <thead>
+        <tr class="bg-slate-500">
+            <th class="border border-slate-400 px-4 py-1">Id</th>
+            <th class="border border-slate-400 px-4 py-1">Título</th>
+            <th class="border border-slate-400 px-4 py-1">slug</th>
+            <th class="border border-slate-400 px-4 py-1">Outras opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%categories.forEach((categorie) => {%>
+           <tr>
+            <td class="border border-slate-400 px-4 py-1"><%=categorie.id%></td>
+            <td class="border border-slate-400 px-4 py-1"><%=categorie.title%></td>
+            <td class="border border-slate-400 px-4 py-1"><%=categorie.slug%></td>
+            <td class="border border-slate-400 px-4 py-1">Opção</td>
+        </tr>
+        <%})%>
+        
+    </tbody>
+</table>
+<%-include('../../partials/Head'); -%>
