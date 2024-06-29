@@ -1,6 +1,5 @@
 
 var express = require('express');
-
 var indexRouter = require('./routes/categories/index');
 var usersRouter = require('./routes/articles/index');
 
@@ -10,7 +9,10 @@ const Categories = require('./routes/categories/Categorie');
 var app = express();
 
 app.set('view engine', 'ejs');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
