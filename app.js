@@ -4,6 +4,9 @@ var express = require('express');
 var indexRouter = require('./routes/categories/index');
 var usersRouter = require('./routes/articles/users');
 
+const Articles = require('./routes/articles/Articles');
+const Categories = require('./routes/categories/Categorie');
+
 var app = express();
 
 app.set('view engine', 'ejs');
