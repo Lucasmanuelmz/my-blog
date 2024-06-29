@@ -1,0 +1,14 @@
+<%-include('../../partials/Head'); -%>
+
+<div class="container mt-10 mx-auto max-w-2xl border-x-2 border-y-2 border-radius rounded-xl px-4 py-4">
+    <h1 class="font-bold mx-auto max-w-80 text-lg mb-6">Adicione uma categoria</h1>
+    <form class="flex flex-col" action="/add-categories" method="post">
+        <label class="" for="title" >Categoria</label>
+        <input class="border-x-2 border-y-2 mt-2 max-w-2xl py-2 px-2 rounded-xl" type="text" id="title" name="title" placeholder="Adicione uma categoria">
+        <button type="submit" class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring
+         focus:ring-violet-300 py-2 px-5 rounded-2xl mt-4 max-w-fit">
+            Enviar categoria
+          </button>
+    </form>
+</div>
+<%-include('../../partials/Footer'); -%>
