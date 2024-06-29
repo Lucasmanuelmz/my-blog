@@ -2,7 +2,7 @@
 
 O projeto "# my-blog" é uma iniciativa dedicada ao desenvolvimento e aprimoramento de habilidades no desenvolvimento backend. Utilizando tecnologias modernas como Node.js, Express e Sequelize, este projeto visa criar uma plataforma robusta para gerenciar e publicar conteúdos de um blog.
 
-###Tecnologias Utilizadas:
+### Tecnologias Utilizadas:
 
 Node.js: Plataforma de execução de código JavaScript do lado do servidor.
 Express: Framework web minimalista para Node.js, ideal para construir APIs e aplicações web.
