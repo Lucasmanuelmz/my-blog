@@ -2,7 +2,7 @@ const {DataTypes} = require('sequelize');
 const sequelize = require('../../database/database');
 const Categories = require('../categories/Categorie');
 
-const Articles = sequelize.define('article', {
+const Articles = sequelize.define('content-table', {
     title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -13,6 +13,10 @@ const Articles = sequelize.define('article', {
     },
     body: {
         type: DataTypes.TEXT,
+        allowNull: false
+    },
+    categoryId: {
+        type: DataTypes.STRING,
         allowNull: false
     }
 });

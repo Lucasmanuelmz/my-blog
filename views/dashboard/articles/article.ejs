@@ -1,0 +1,27 @@
+<%-include('../../partials/Head'); -%>
+<%-include('../../partials/header'); -%>
+<table class="mt-10 table-auto max-w-4xl border-spacing-5 mx-auto border-collapse border rounded-xl border-slate-500 px-4 py-4">
+    <caption class="bg-slate-200 py-3 caption-top text-xs">
+        Tabela artigos: Contém todos os artigos do blog
+      </caption>
+    <thead>
+        <tr class="bg-slate-500">
+            <th class="border border-slate-400 px-4 py-1">Id</th>
+            <th class="border border-slate-400 px-4 py-1">Título</th>
+            <th class="border border-slate-400 px-4 py-1">Categoria</th>
+            <th class="border border-slate-400 px-4 py-1">Slug</th>
+            <th class="border border-slate-400 px-4 py-1">Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%articles.forEach(article => {%>
+            <tr>
+                <td><%= article.id %></td>
+                <td><%= article.title %></td>
+                <td><%= article.body %></td>
+                <td><%= article.categoryId %></td>
+            </tr>
+        <%})%>
+    </tbody>
+</table>
+<%-include('../../partials/Footer'); -%>

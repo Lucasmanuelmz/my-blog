@@ -1,6 +1,7 @@
 <%-include('../../partials/Head'); -%>
-<table class=" mt-10 table-auto max-w-4xl border-spacing-5 mx-auto border-collapse border rounded-xl border-slate-500 px-4 py-4">
-    <caption class="caption-top text-xs mb-3">
+<%-include('../../partials/header'); -%>
+<table class="mt-10 table-auto max-w-4xl border-spacing-5 mx-auto border-collapse border rounded-xl border-slate-500 px-4 py-4">
+    <caption class="bg-slate-200 py-3 caption-top text-xs">
         Tabela categorias: Contém todas categorias do blog
       </caption>
     <thead>
@@ -8,7 +9,7 @@
             <th class="border border-slate-400 px-4 py-1">Id</th>
             <th class="border border-slate-400 px-4 py-1">Título</th>
             <th class="border border-slate-400 px-4 py-1">slug</th>
-            <th class="border border-slate-400 px-4 py-1">Outras opções</th>
+            <th class="border border-slate-400 px-4 py-1">Opções</th>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +18,13 @@
             <td class="border border-slate-400 px-4 py-1"><%=categorie.id%></td>
             <td class="border border-slate-400 px-4 py-1"><%=categorie.title%></td>
             <td class="border border-slate-400 px-4 py-1"><%=categorie.slug%></td>
-            <td class="border border-slate-400 px-4 py-1">Opção</td>
+            <td class="border border-slate-400 px-4 py-1">
+                <a href="/dashboard/categories/edit/<%= categorie.id %>" class="rounded-2xl border-slate-400 px-4 py-1 bg-orange-600">Editar</a>
+                <form class="inline" action="/category/delete" method="post">
+                    <input type="hidden" name="id" value="<%=categorie.id%>">
+                <button class="rounded-2xl border-slate-400 px-4 py-1  bg-red-700">Apagar</button>
+               </form>
+            </td>
         </tr>
         <%})%>
         

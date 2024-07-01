@@ -13,11 +13,11 @@ router.post('/add-categories', (req, res) => {
     title: title,
     slug: slugify(title)
   }).then(() => {
-    res.redirect('dasboard/categories/new')
+    res.redirect('dashboard/categories/new')
   })
 })
 
-router.get('/dasboard/categories/new', (req, res) => {
+router.get('/dashboard/categories/new', (req, res) => {
   Categories.findAll().then((categories) => {
     if(categories != undefined) {
       res.render('dashboard/categories/newcat.ejs',{
@@ -28,5 +28,36 @@ router.get('/dasboard/categories/new', (req, res) => {
     }
   })
 })
+
+router.post('/category/delete', (req, res) => {
+  let {id} = req.body;
+  let my_id = Number(id)
+  if(my_id != undefined) {
+      Categories.destroy({
+        where: {
+          id: id
+        }
+      }).then(() => {
+        res.redirect('/dashboard/categories/new');
+        console.log('Apagado com sucesso')
+      })
+  } else {
+    res.redirect('/dashboard/categories/new')
+    console.log('Não encontrado')
+  }
+})
+
+router.get('/dashboard/categories/edit/:id', (req, res) => {
+          let id = req.params.id;
+
+    Categories.findByPk(id).then(category => {
+      if(category != undefined) {
+        res.render('dashboard/categories/edit.ejs',{
+          category: category
+        })
+      }  
+    })
+       
+    })
 
 module.exports = router;

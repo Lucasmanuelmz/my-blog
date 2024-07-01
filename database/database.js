@@ -5,7 +5,8 @@ const sequelize = new Sequelize(
     '4026.Test@Lucas#Manuel', 
     {
     host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'mysql',
+    timezone: '+02:00'
 });
 
 async function authenticate() {
