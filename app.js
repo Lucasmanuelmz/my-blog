@@ -3,8 +3,8 @@ var express = require('express');
 var indexRouter = require('./routes/categories/index');
 var usersRouter = require('./routes/articles/index');
 
-const Articles = require('./routes/articles/Articles');
-const Categories = require('./routes/categories/Categorie');
+const Articles = require('./routes/models/Articles');
+const Categories = require('./routes/models/Categorie');
 
 var app = express();
 

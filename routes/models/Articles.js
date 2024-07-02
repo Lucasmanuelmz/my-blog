@@ -1,8 +1,8 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require('../../database/database');
-const Categories = require('../categories/Categorie');
+const Categories = require('./Categorie');
 
-const Articles = sequelize.define('content-table', {
+const Articles = sequelize.define('article', {
     title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -15,13 +15,14 @@ const Articles = sequelize.define('content-table', {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    categoryId: {
+    categorieId: {
         type: DataTypes.STRING,
         allowNull: false
     }
 });
 
-Articles.belongsTo(Categories);
 Categories.hasMany(Articles);
+Articles.belongsTo(Categories);
+
 
 module.exports = Articles;

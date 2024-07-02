@@ -1,5 +1,5 @@
 const express = require('express');
-const Categories = require('./Categorie');
+const Categories = require('../models/Categorie');
 const router = express.Router();
 const slugify = require('slugify')
 

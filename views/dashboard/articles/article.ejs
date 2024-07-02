@@ -10,17 +10,27 @@
             <th class="border border-slate-400 px-4 py-1">Título</th>
             <th class="border border-slate-400 px-4 py-1">Categoria</th>
             <th class="border border-slate-400 px-4 py-1">Slug</th>
-            <th class="border border-slate-400 px-4 py-1">Opções</th>
+            <th class="border border-slate-400 px-4 py-1">Ações</th>
         </tr>
     </thead>
     <tbody>
-        <%articles.forEach(article => {%>
-            <tr>
-                <td><%= article.id %></td>
-                <td><%= article.title %></td>
-                <td><%= article.body %></td>
-                <td><%= article.categoryId %></td>
-            </tr>
+        <%contents.forEach(article => {%>
+        <tr>
+        <td class="border border-slate-400 px-4 py-1"><%= article.id %></td>
+        <td class="border border-slate-400 px-4 py-1"><%= article.title %></td>
+        <%if(article.categorie) {%>
+         <td class="border border-slate-400 px-4 py-1"><%= article.categorie.title %></td>
+        <%} else {%>
+        <td class="border border-slate-400 px-4 py-1">Categoria não definida</td>
+        <%}%>
+        <td class="border border-slate-400 px-4 py-1"><%= article.slug %></td>
+        <td class="border border-slate-400 px-4 py-1">
+            <form class="inline" action="/article/delete" method="post">
+                <input type="hidden" name="id" value="<%=article.id%>">
+            <button class="rounded-2xl border-slate-400 px-4 py-1  bg-red-700">Apagar</button>
+           </form>
+        </td>
+        </tr>
         <%})%>
     </tbody>
 </table>

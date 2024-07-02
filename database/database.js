@@ -12,10 +12,12 @@ const sequelize = new Sequelize(
 async function authenticate() {
     try{
         await sequelize.authenticate()
-    }catch(erro) {
-        console.log('Autentcacao proibido '+erro)
+    }catch(error) {
+        console.log('Autentcacao proibido '+error)
     }
 }
 authenticate()
+
+sequelize.options.instanceCache = null;
 
 module.exports = sequelize;
