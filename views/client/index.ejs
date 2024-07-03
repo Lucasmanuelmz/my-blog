@@ -1,0 +1,8 @@
+<%-include('../partials/admin/Head'); -%>
+<%-include('../partials/client/header');-%>
+<div class="container mx-auto py-4 px-4 max-w-5xl">
+    <%articles.forEach(article => {%>
+      <h2 class="text-2xl font-bold"><a href="/<%= article.slug %>"><%= article.title %></a></h2>   
+   <% })%>
+</div>
+<%-include('../partials/admin/Footer'); -%>

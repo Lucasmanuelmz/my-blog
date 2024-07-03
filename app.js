@@ -20,6 +20,59 @@ app.use(express.static('public'));
 app.use('/', indexRouter);
 app.use('/', usersRouter);
 
+
+app.get('/:slug', (req, res) => {
+  let slug = req.params.slug;
+  Articles.findAll({
+    where: {
+      slug: slug
+    }
+  }).then(articles => {
+    if(articles != undefined) {
+      Categories.findAll().then(categories => {
+          res.render('client/read.ejs', {
+          articles: articles,
+          categories: categories
+        })
+      })
+    }
+    
+  })
+})
+
+app.get('/', (req, res) => {
+  Articles.findAll().then(articles => {
+    if(articles != undefined) {
+      Categories.findAll().then(categories => {
+           res.render('client/index.ejs', {
+          articles: articles,
+          categories: categories
+        })
+      })
+    
+    }
+   
+  }) 
+});
+
+app.get('/category/:slug', (req, res) => {
+  let slug = req.params.slug;
+  Categories.findOne({
+    where: {slug: slug},
+    include: Articles
+  }).then(category => {
+    if(category != undefined) {
+      Categories.findAll().then((categories) => {
+        res.render('client/index.ejs', {
+          articles: category.articles, 
+          categories: categories
+        })
+      })
+    }
+  })
+})
+
+
 app.listen(3000,(error) => {
   if(!error) {
     console.log(`Servidor iniciado`)

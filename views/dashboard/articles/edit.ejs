@@ -1,16 +1,17 @@
-<%-include('../../partials/admin/Head');-%>
+<%-include('../../partials/admin/Head'); -%>
 <%-include('../header'); -%>
 <div class="container mt-10 mx-auto max-w-2xl border-x-2 border-y-2 border-radius rounded-xl px-4 py-4">
-    <h1 class="font-bold mx-auto max-w-80 text-lg mb-6">Crie um novo artigo</h1>
-    <form class="flex flex-col" action="/dashboard/add-articles" method="post">
-        <label class="text-base text-slate-500" for="title" >Título do artigo</label>
-        <input required class="border-x-2 mb-4 border-y-2 mt-2 max-w-2xl py-2 px-2 rounded-xl" type="text" name="title" id="title" placeholder="Título do novo artigo">
-        <label class="text-lg text-base text-slate-500" for="body">Corpo do artigo</label>
+    <h1 class="font-bold mx-auto max-w-80 text-lg mb-6">Editar artigo</h1>
+    <form class="flex flex-col" action="/article/update" method="post">
+        <input type="number"  name="id" value="<%=article.id%>" id="id">
+        <label class="" for="title" >Editar</label>
+        <input class="border-x-2 border-y-2 mt-2 max-w-2xl py-2 px-2 rounded-xl" value="<%= article.title %>" type="text" id="title" name="title" placeholder="Adicione título do artigo">
+        <label class="text-lg text-base text-slate-500" for="body">Editar o corpo</label>
         <textarea class="mt-1 mb-4 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
         focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
         disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none" name="body" id="body" placeholder="Escreva o corpo do artigo neste espaço"></textarea>
-        
-        <label class="text-lg mb-3 text-base text-slate-500" for="categoryId">Categoria do artigo</label>
+        s
+        <label class="text-lg mb-3 text-base text-slate-500" for="categoryId">Editar categoria</label>
         <select name="categoryId" id="categoryId" required>
             <%categories.forEach(category => {%>
                  <option value="<%= category.id %>"><%= category.title %></option>
@@ -19,16 +20,26 @@
         </select>
         <button type="submit" class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring
          focus:ring-violet-300 py-2 px-5 rounded-2xl mt-4 max-w-fit">
-            Salvar artigo
+            atualizar
           </button>
     </form>
+</div>
+<div id="content" style="display: none;">
+    <%- article.body %>
 </div>
 <script src="../../../tinymce/tinymce.min.js"></script>
 <script>
     tinymce.init({
         language: 'pt_PT',
         selector: '#body',
-        plugins: ['autolink autosave autorisize code codesample image link lists preview table searchreplace save print fullscreen advlist']
+        plugins: ['autolink autosave autorisize code codesample image link lists preview table searchreplace save print fullscreen advlist'],
+        setup: function (editor) {
+            editor.on('init', function () {
+                let content = document.getElementById('content').innerHTML;
+                editor.setContent(content);
+            });
+        }
     })
+      
 </script>
 <%-include('../../partials/admin/Footer'); -%>

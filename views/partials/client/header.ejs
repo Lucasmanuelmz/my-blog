@@ -1,0 +1,10 @@
+   <header>
+   <nav class="container flex max-w-7xl">
+        <a href="/">Início</a>
+        <%if(categories && categories.length > 0) {%>
+            <% categories.forEach(category => { %> 
+                <a class="px-2" href="/category/<%= category.slug %>"><%= category.title %></a>
+            <%})%>
+        <%}%>
+    </nav>
+   </header>

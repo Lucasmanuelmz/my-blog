@@ -1,6 +1,6 @@
-<%-include('../../partials/Head'); -%>
-<%-include('../../partials/header'); -%>
-<table class="mt-10 table-auto max-w-4xl border-spacing-5 mx-auto border-collapse border rounded-xl border-slate-500 px-4 py-4">
+<%-include('../../partials/admin/Head');-%>
+<%-include('../header'); %>
+<table class="mt-10 table-auto max-w-5xl border-spacing-5 mx-auto border-collapse border rounded-xl border-slate-500 px-4 py-4">
     <caption class="bg-slate-200 py-3 caption-top text-xs">
         Tabela artigos: Contém todos os artigos do blog
       </caption>
@@ -24,7 +24,9 @@
         <td class="border border-slate-400 px-4 py-1">Categoria não definida</td>
         <%}%>
         <td class="border border-slate-400 px-4 py-1"><%= article.slug %></td>
-        <td class="border border-slate-400 px-4 py-1">
+        <td class="flex justify-center items-center border border-slate-400 px-4 py-1">
+
+            <a href="/article/edit/<%=article.id %>" class="mx-2 rounded-2xl border-slate-400 px-4 py-1 bg-orange-600">Editar</a>
             <form class="inline" action="/article/delete" method="post">
                 <input type="hidden" name="id" value="<%=article.id%>">
             <button class="rounded-2xl border-slate-400 px-4 py-1  bg-red-700">Apagar</button>
@@ -34,4 +36,4 @@
         <%})%>
     </tbody>
 </table>
-<%-include('../../partials/Footer'); -%>
+<%-include('../../partials/admin/Footer'); -%>
