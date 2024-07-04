@@ -1,0 +1,57 @@
+<%-include('../partials/admin/Head'); -%>
+<%-include('../partials/client/header');-%>
+<div class="container mx-auto max-w-3xl border-2 py-4 px-4 mt-6">
+    <form action="/post/user/data" method="post" class="container">
+    <fieldset class="container flex border-none">
+    <div class="container flex flex-col max-w-xs">
+     <label  class="block text-sm font-medium text-slate-700" for="firstname">Primeiro nome:</label>
+     <input class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+     focus:outline-none  mb-6 focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+     invalid:border-pink-500 invalid:text-pink-600
+     focus:invalid:border-pink-500 focus:invalid:ring-pink-500" type="text" name="firstname" id="firstname" placeholder="Primeiro nome" required/>
+     <label  class="block text-sm font-medium text-slate-700" for="lastname">Ultimo nome:</label>
+     <input class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+     disabled:bg-slate-50 disabled:text-slate-500  mb-6 disabled:border-slate-200 disabled:shadow-none
+     invalid:border-pink-500 invalid:text-pink-600
+     focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+   " type="text" name="lastname" id="lastname" placeholder="Ultimo nome" required>
+     <label  class="block text-sm font-medium text-slate-700" for="email">Email:</label>
+     <input class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+     disabled:bg-slate-50  mb-6 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+     invalid:border-pink-500 invalid:text-pink-600
+     focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+   " type="email" name="email" id="email" placeholder="Digite o seu email" required/>
+    </div>
+    <div class="container flex flex-col max-w-xs">
+     <label  class="block text-sm font-medium text-slate-700" for="phone">Telefone(opcional):</label>
+     <input class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+     invalid:border-pink-500  mb-6 invalid:text-pink-600
+     focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+   "  type="tel" name="phone" id="phone" placeholder="865343656" />
+     <label class="block text-sm font-medium text-slate-700" for="password">Senha:</label>
+     <input class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+     invalid:border-pink-500 invalid:text-pink-600
+     focus:invalid:border-pink-500  mb-6 focus:invalid:ring-pink-500
+   " type="password" name="password" id="password" placeholder="********" required/>
+     <label  class="block text-sm font-medium text-slate-700" for="confirm">Confirme a senha:</label>
+     <input class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+     invalid:border-pink-500 invalid:text-pink-600
+     focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+   " type="password" name="confirm" id="confirm" placeholder="********" required>
+    </div>
+    </fieldset>
+     <button class="mt-5 mr-5 float-right py-2 px-5 bg-purple-700 rounded-xl" type="submit">Enviar dados</button>
+    </form>
+</div>
+
+  
+<%-include('../partials/admin/Footer'); -%>

@@ -1,12 +1,14 @@
 
-var express = require('express');
-var indexRouter = require('./routes/categories/index');
-var usersRouter = require('./routes/articles/index');
-
+const express = require('express');
+const categoryRouter = require('./routes/categories/index');
+const articleRouter = require('./routes/articles/index');
+const usersRouter = require('./routes/users/user')
+const session = require('express-session');
 const Articles = require('./routes/models/Articles');
 const Categories = require('./routes/models/Categorie');
+const User = require('./routes/models/user')
 
-var app = express();
+const app = express();
 
 app.set('view engine', 'ejs');
 const bodyParser = require('body-parser');
@@ -17,8 +19,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
-app.use('/', indexRouter);
+app.use('/', categoryRouter);
+app.use('/', articleRouter)
 app.use('/', usersRouter);
+app.use(session({
+  secret: 'rewwuydfgtehurojhgdfy', cookie: {maxAge: 300000}
+}))
 
 
 app.get('/:slug', (req, res) => {

@@ -1,0 +1,37 @@
+<%-include('../../partials/admin/Head');-%>
+<%-include('../header'); %>
+<table class="mt-10 table-auto max-w-5xl border-spacing-5 mx-auto border-collapse border rounded-xl border-slate-500 px-4 py-4">
+    <caption class="bg-slate-200 py-3 caption-top text-xs">
+        Tabela de Usuarios da plataforma
+      </caption>
+    <thead>
+        <tr class="bg-slate-500">
+            <th class="border border-slate-400 px-4 py-1">Id</th>
+            <th class="border border-slate-400 px-4 py-1">Primeiro nome</th>
+            <th class="border border-slate-400 px-4 py-1">Nome do meio</th>
+            <th class="border border-slate-400 px-4 py-1">Email</th>
+            <th class="border border-slate-400 px-4 py-1">Telefone</th>
+            <th class="border border-slate-400 px-4 py-1">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%users.forEach(user => {%>
+        <tr>
+        <td class="border border-slate-400 px-4 py-1"><%= user.id %></td>
+        <td class="border border-slate-400 px-4 py-1"><%= user.firstname %></td>
+         <td class="border border-slate-400 px-4 py-1"><%= user.lastName%></td>
+        <td class="border border-slate-400 px-4 py-1"><%= user.email %></td>
+        <td class="border border-slate-400 px-4 py-1"><%=user.phone%></td>
+        <td class="flex justify-center items-center border border-slate-400 px-4 py-1">
+
+            <a href="/admin/user/edit/<%=user.id%>'" class="mx-2 rounded-2xl border-slate-400 px-4 py-1 bg-orange-600">Editar</a>
+            <form class="inline" action="/admin/delete/user" method="post">
+                <input type="hidden" name="id" value="<%=user.id%>">
+            <button class="rounded-2xl border-slate-400 px-4 py-1  bg-red-700">Apagar</button>
+           </form>
+        </td>
+        </tr>
+        <%})%>
+    </tbody>
+</table>
+<%-include('../../partials/admin/Footer'); -%>
