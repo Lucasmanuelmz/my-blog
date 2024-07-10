@@ -3,7 +3,7 @@ const Categories = require('../models/Categorie');
 const router = express.Router();
 const slugify = require('slugify')
 
-router.get('/dashboard/category',(req, res) => {
+router.get('/dashboard/category', (req, res) => {
   res.render('dashboard/categories/index.ejs');
 });
 

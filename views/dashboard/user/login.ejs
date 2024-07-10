@@ -1,8 +1,8 @@
 <%-include('../../partials/admin/Head'); -%>
-<%-include('../header');-%>
-<div class="container mx-auto max-w-3xl border-2 py-4 px-4 mt-6">
-    <form action="/post/user/data" method="post" class="container">
-    <div class="container flex flex-col max-w-xs">
+<div class="container mx-auto max-w-xl border-2 py-4 px-4 mt-6">
+    <h2 class="text-xl font-bold mb-5 text-center">Entrar na conta</h2>
+    <form action="/authenticate" method="post" class="container">
+    <div class="container flex flex-col max-w-lg">
      <label  class="block text-sm font-medium text-slate-700" for="email">Email:</label>
      <input class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
@@ -18,7 +18,7 @@
      focus:invalid:border-pink-500  mb-6 focus:invalid:ring-pink-500
    " type="password" name="password" id="password" placeholder="********" required/>
     </div>
-     <button class="mt-5 mr-5 float-right py-2 px-5 bg-purple-700 rounded-xl" type="submit">Entrar</button>
+     <button class="mt-5 mr-2 float-right py-2 px-5 bg-purple-700 rounded-xl" type="submit">Entrar</button>
     </form>
 </div>
 <%-include('../../partials/admin/Footer'); -%>

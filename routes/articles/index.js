@@ -4,7 +4,7 @@ const Categories = require('../models/Categorie');
 const Articles = require('../models/Articles');
 const slugify = require('slugify');
 
-router.get('/new/article', (req, res) => {
+router.get('/new/article',  (req, res) => {
   Categories.findAll().then(categories => {
       res.render('dashboard/articles/index.ejs', {
         categories: categories

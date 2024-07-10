@@ -27,6 +27,14 @@ app.use(session({
 }))
 
 
+function authDashboard(req, res, next){
+  if(req.session.user != undefined) {
+      next()
+   } else {
+      res.redirect('/');
+   }
+  }
+
 app.get('/:slug', (req, res) => {
   let slug = req.params.slug;
   Articles.findAll({

@@ -95,5 +95,41 @@ const User = require('../models/user');
     })
  })
 
+ router.get('/login', (req, res) => {
+    res.render('dashboard/user/login.ejs')
+ })
+
+ router.post('/authenticate', (req, res) => {
+    let {email, password} = req.body;
+
+    User.findOne({
+        where: {email: email}
+    }).then(user => {
+        if(user != undefined) {
+            let correct = bcrypt.compareSync(password, user.password);
+
+            if(correct) {
+                req.session.user = {
+                    id: user.id,
+                    email: user.email
+                }
+                res.redirect('/new/article')
+            }else{
+                res.redirect('/login')
+            }
+
+        } else {
+            res.redirect('/login')
+        }
+    }).catch(error => {
+        console.log(error.message)
+    })
+ })
+
+ router.get('/logout', (req, res) => {
+    if(req.session.user == undefined){
+     res.redirect('/');
+    }
+ })
 
 module.exports = router;
